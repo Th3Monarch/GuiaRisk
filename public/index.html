@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuiaRisk 2.0 | Centro de Compliance, Debida Diligencia & Prevención LA/FT</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- SheetJS para manejo y exportación de archivos Excel (.xlsx/.csv) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <!-- html2pdf para descarga directa en 1 clic de certificados PDF oficiales -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="brand-name">
+          <span class="brand-text">Guia<span>Risk</span></span>
+          <span class="brand-tag">2.0 Core</span>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <div class="status-indicator">
+          <div class="pulse-dot"></div>
+          <span>18 Fuentes Regulatorias Sincronizadas • CNE: Fuera de Servicio (Temporal) • SENIAT: En Línea</span>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">MG</div>
+          <div class="user-info">
+            <span class="user-name">Manuel Guía</span>
+            <span class="user-role">Oficial de Cumplimiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV TABS -->
+  <nav class="app-nav">
+    <button class="nav-tab active" data-tab="tab-single">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Auditoría Individual (1 a 1)
+    </button>
+    <button class="nav-tab" data-tab="tab-batch">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Carga Masiva (Lotes)
+    </button>
+    <button class="nav-tab" data-tab="tab-history">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Pista de Auditoría (Historial)
+    </button>
+    <button class="nav-tab" data-tab="tab-sources">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      Fuentes & Listas
+    </button>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-content">
+
+    <!-- TAB 1: AUDITORÍA INDIVIDUAL -->
+    <div id="tab-single" class="tab-pane active">
+      <div class="audit-view-wrapper">
+        
+        <!-- CARD DE BÚSQUEDA CENTRADA -->
+        <div class="search-card-centered">
+          <div style="text-align: center; margin-bottom: 1.25rem;">
+            <h2 class="card-title" style="justify-content: center; font-size: 1.35rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7.5" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+              Parámetros del Sujeto
+            </h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">Cruce simultáneo contra listas internacionales vinculantes y registros públicos nacionales.</p>
+          </div>
+
+          <form id="auditForm">
+            <div class="type-toggle" style="max-width: 380px; margin: 0 auto 1.25rem;">
+              <button type="button" class="type-btn active" data-type="Natural">Persona Natural</button>
+              <button type="button" class="type-btn" data-type="Juridica">Persona Jurídica</button>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="inputId">Cédula de Identidad o RIF *</label>
+                <input type="text" id="inputId" class="form-input" placeholder="Ej: V-12345678 o J-31099882-1" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inputCountry">País / Nacionalidad</label>
+                <input type="text" id="inputCountry" class="form-input" value="Venezuela">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputName">Nombres y Apellidos / Razón Social</label>
+              <input type="text" id="inputName" class="form-input" placeholder="Nombre Completo del Titular o Razón Social">
+            </div>
+
+            <!-- MÓDULO BENEFICIARIOS FINALES (UBO >= 25%) - SOLO PERSONA JURÍDICA -->
+            <div id="uboContainer" class="ubo-card" style="display: none;">
+              <div class="ubo-header">
+                <div class="ubo-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Beneficiarios Finales y Control Accionario (UBO ≥ 25%)
+                </div>
+                <button type="button" class="btn-subtle" id="btnAddUbo">+ Agregar Accionista</button>
+              </div>
+              <p class="ubo-sub">Norma SUDEASEG / GAFI: Identificación obligatoria de personas naturales con 25% o más de acciones o poder directivo.</p>
+              <div id="uboList" class="ubo-list"></div>
+            </div>
+
+            <!-- MÓDULO FACTORES DE RIESGO EBR (ENFOQUE BASADO EN RIESGO / SUDEASEG) -->
+            <div class="ebr-accordion">
+              <button type="button" class="ebr-toggle-btn" id="btnToggleEbr">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  <strong>Matriz de Factores de Riesgo de la Operación (EBR / SUDEASEG)</strong>
+                  <span class="badge-ebr-status" id="ebrBadgeStatus">Opcional • Estándar</span>
+                </span>
+                <span id="ebrArrowIcon">▾</span>
+              </button>
+              <div id="ebrPanel" class="ebr-content" style="display: none;">
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label class="form-label" for="ebrProduct">Ramo / Producto:</label>
+                    <select id="ebrProduct" class="form-input">
+                      <option value="automovil_salud">Automóvil / Salud / Vida (Bajo - 0 pts)</option>
+                      <option value="patrimonial_incendio">Patrimonial / Incendio / RC (Moderado - +10 pts)</option>
+                      <option value="fianzas_financieras">Fianzas / Cumplimiento / Masivos (Alto - +20 pts)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="ebrChannel">Canal de Distribución:</label>
+                    <select id="ebrChannel" class="form-input">
+                      <option value="corredor_autorizado">Corredor de Seguros Autorizado (0 pts)</option>
+                      <option value="venta_directa">Venta Directa en Taquilla (0 pts)</option>
+                      <option value="banca_affinity">Banca-Seguros / Affinity / Digital (+5 pts)</option>
+                      <option value="no_presencial">Digital Sin Biometría / Terceros (+15 pts)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="ebrZone">Zona Geográfica:</label>
+                    <select id="ebrZone" class="form-input">
+                      <option value="caracas_central">Gran Caracas / Región Central (0 pts)</option>
+                      <option value="interior">Interior del País (Centro/Occ/Oriente) (+5 pts)</option>
+                      <option value="fronteriza">Zonas Fronterizas (Zulia, Táchira, Apure...) (+20 pts)</option>
+                      <option value="offshore">Internacional / Paraísos Fiscales (+30 pts)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row-2" style="margin-top: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="inputDob">Fecha de Nacimiento / Constitución</label>
+                <input type="date" id="inputDob" class="form-input">
+              </div>
+
+              <div class="form-group" style="display: flex; align-items: flex-end;">
+                <button type="submit" class="btn-primary" id="btnRunAudit" style="margin-top: 0; height: 42px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  AUDITAR & DEBIDA DILIGENCIA
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- PRESETS DE PRUEBA RÁPIDA -->
+          <div class="preset-pills">
+            <div class="preset-title" style="text-align: center;">Casos de Prueba Rápida:</div>
+            <div class="pills-container" style="justify-content: center;">
+              <button type="button" class="pill-preset" data-preset="clean">✓ Nelson Chacón (Limpio)</button>
+              <button type="button" class="pill-preset" data-preset="homonym">⚠️ Carlos López (Homónimo OFAC)</button>
+              <button type="button" class="pill-preset" data-preset="entity">🚫 Mar de Plata C.A. (OFAC / UBO)</button>
+              <button type="button" class="pill-preset" data-preset="pep">🏛️ Carmen Hernández (PEP Nacional)</button>
+              <button type="button" class="pill-preset" data-preset="cgr">⚖️ Luis Parra (Inhabilitado CGR)</button>
+              <button type="button" class="pill-preset" data-preset="interpol">🌍 Samark López (Interpol)</button>
+              <button type="button" class="pill-preset" data-preset="sudeaseg">💼 Pedro Martínez (SUDEASEG)</button>
+              <button type="button" class="pill-preset" data-preset="manuel">🛡️ Manuel Guía (Auditor)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN DE RESULTADOS (ABAJO DEL BUSCADOR) -->
+        <div id="resultsWrapper" class="results-stage" style="display: none;">
+
+          <!-- VERDICT BANNER & RADAR SCORE -->
+          <div class="verdict-banner">
+            <div class="verdict-info">
+              <span class="verdict-label">Dictamen de Debida Diligencia</span>
+              <div class="verdict-text" id="verdictText">CONFORME / SIN HALLAZGOS</div>
+              <div class="verdict-sub" id="verdictSub">Evaluado bajo estándares SUDEASEG / SUDEBAN / OFAC</div>
+            </div>
+
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" width="90" height="90" viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="40"/>
+                <circle class="gauge-bar" id="gaugeBar" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+              </svg>
+              <div class="gauge-number" id="gaugeScore">0
+                <span class="gauge-tag">Score</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRID DE 2 COLUMNAS PARA RESULTADOS -->
+          <div class="results-grid-2">
+            <!-- COLUMNA 1: ENRIQUECIMIENTO NACIONAL (CNE + SENIAT) -->
+            <div class="card">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Enriquecimiento Nacional 1-Clic
+              </h3>
+              <p class="card-subtitle">Validación oficial de identidad electoral y condición tributaria sin salir de la plataforma.</p>
+
+              <div class="national-grid-vertical">
+                <!-- CNE BOX -->
+                <div class="national-box" style="margin-bottom: 1rem;">
+                  <div class="box-header">
+                    <span class="box-title">🗳️ Registro Electoral (CNE)</span>
+                    <span class="tag-offline" id="cneTag" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.4); padding: 2px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 600;">Fuera de Servicio - Temporalmente</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Titular:</span>
+                    <span class="data-value" id="cneName" style="color: var(--text-muted);">Servicio CNE no disponible temporalmente</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Cédula:</span>
+                    <span class="data-value" id="cneDoc">-</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Ubicación:</span>
+                    <span class="data-value" id="cneLocation" style="color: var(--text-muted);">Consulta no disponible</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Centro de Votación:</span>
+                    <span class="data-value" id="cneCenter" style="color: var(--text-muted);">Fuera de Servicio - Temporalmente</span>
+                  </div>
+                </div>
+
+                <!-- SENIAT BOX -->
+                <div class="national-box">
+                  <div class="box-header">
+                    <span class="box-title">🏛️ Tributario (SENIAT)</span>
+                    <span class="tag-verified" id="seniatTag">ACTIVO</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">RIF Fiscal:</span>
+                    <span class="data-value" id="seniatRifNumber" style="font-family: var(--font-mono); font-weight: 700; color: #38bdf8;">-</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Contribuyente:</span>
+                    <span class="data-value" id="seniatRif">-</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Condición:</span>
+                    <span class="data-value" id="seniatCategory">-</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Retención IVA:</span>
+                    <span class="data-value" id="seniatRetention">0%</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Actividad:</span>
+                    <span class="data-value" id="seniatActivity">-</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMNA 2: HALLAZGOS Y MOTOR ANTI-HOMONIMIAS -->
+            <div class="card">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Hallazgos en Listas Vinculantes & Descarte
+              </h3>
+              <p class="card-subtitle">Análisis semántico contrastando país de origen, año de nacimiento y aliases.</p>
+
+              <div id="findingsList" class="findings-container">
+                <!-- Se puebla dinámicamente con JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTONES DE ACCIÓN FINAL -->
+          <div class="actions-bar" style="justify-content: center; max-width: 800px; margin: 1rem auto 0;">
+            <button class="btn-primary" id="btnOpenCert" style="margin-top: 0; width: auto; flex: 1.2;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Ver Certificado Oficial (PDF / QR)
+            </button>
+            <button class="btn-secondary" id="btnCopyHash">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar Hash SHA-256
+            </button>
+            <button class="btn-secondary" id="btnPrintNow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Imprimir
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: CARGA MASIVA (BATCH) -->
+    <div id="tab-batch" class="tab-pane">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <h2 class="card-title">Auditoría Masiva de Cartera</h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">Procese carteras enteras de asegurados, proveedores o empleados contra todas las listas en segundos.</p>
+          </div>
+          <a href="/api/audit/batch-template" class="btn-secondary" style="font-size: 0.8rem; text-decoration: none;" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar Plantilla Oficial (.xlsx)
+          </a>
+        </div>
+
+        <!-- DROPZONE REAL DE ARCHIVOS -->
+        <div id="batchDropzone" class="batch-dropzone">
+          <input type="file" id="batchFileInput" accept=".xlsx,.xls,.csv" style="display: none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" style="margin-bottom: 0.75rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem;">Arrastra aquí tu archivo Excel (.xlsx / .xls) o CSV</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem;">Columnas detectadas automáticamente: Cédula/RIF, Nombre Completo, Tipo, País, Fecha Nacimiento</div>
+          
+          <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+            <button type="button" class="btn-primary" id="btnSelectBatchFile" style="width: auto; margin: 0; padding: 0.65rem 1.5rem; display: inline-flex;">
+              📁 Seleccionar Archivo en Disco
+            </button>
+            <button type="button" class="btn-secondary" id="btnSimulateBatch" style="width: auto; margin: 0; padding: 0.65rem 1.25rem; display: inline-flex;">
+              ⚡ Cargar Lote de Prueba (5 Casos)
+            </button>
+          </div>
+
+          <div id="selectedFileInfo" style="display: none; margin-top: 1rem; padding: 0.65rem 1rem; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; font-size: 0.85rem; align-items: center; justify-content: center; gap: 0.75rem;">
+            <span>📄 <strong id="selectedFileName">archivo.xlsx</strong> (<span id="selectedFileSize">0 KB</span>)</span>
+            <button type="button" class="btn-primary" id="btnProcessUploadedFile" style="width: auto; margin: 0; padding: 4px 14px; font-size: 0.8rem;">
+              🚀 Iniciar Auditoría de Cartera
+            </button>
+          </div>
+        </div>
+
+        <!-- BARRA DE PROGRESO DE AUDITORÍA -->
+        <div id="batchProgressContainer" style="display: none; margin-bottom: 1.5rem; background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem;">
+            <span id="batchProgressText" style="font-weight: 600;">Procesando cartera contra listas vinculantes...</span>
+            <span id="batchProgressPercent" style="font-family: var(--font-mono); font-weight: 700; color: var(--primary-glow);">0%</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
+            <div id="batchProgressBar" style="width: 0%; height: 100%; background: var(--primary-gradient); transition: width 0.2s ease;"></div>
+          </div>
+        </div>
+
+        <!-- RESULTADOS DE LA AUDITORÍA MASIVA -->
+        <div id="batchResults" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle);">
+            <div>
+              <h3 class="card-title" style="margin-bottom: 0.25rem;">Resumen de Auditoría de Cartera</h3>
+              <div id="batchSummaryStats" style="display: flex; gap: 0.6rem; font-size: 0.78rem;">
+                <span class="cert-pill-badge badge-neutral" id="batchStatTotal">Total: 0</span>
+                <span class="cert-pill-badge badge-success" id="batchStatClean">Conformes: 0</span>
+                <span class="cert-pill-badge badge-warning" id="batchStatMedium">Alertas / Homonimias: 0</span>
+                <span class="cert-pill-badge badge-danger" id="batchStatHigh">Bloqueados / PEPs: 0</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button type="button" class="btn-primary" id="btnExportBatchExcel" style="width: auto; margin: 0; padding: 0.65rem 1.25rem; font-size: 0.85rem; background: linear-gradient(135deg, #059669, #10b981);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                📥 Descargar Informe Completo en Excel (.xlsx)
+              </button>
+            </div>
+          </div>
+
+          <!-- FILTROS RÁPIDOS -->
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+            <button type="button" class="pill-preset active" id="filterBatchAll">Todos</button>
+            <button type="button" class="pill-preset" id="filterBatchAlerts">⚠️ Solo con Alertas / PEPs</button>
+            <button type="button" class="pill-preset" id="filterBatchClean">✓ Solo Conformes (Limpios)</button>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Documento</th>
+                <th>Nombre del Titular</th>
+                <th>Tipo</th>
+                <th>CNE / SENIAT</th>
+                <th>Hallazgos</th>
+                <th>Score</th>
+                <th>Dictamen</th>
+              </tr>
+            </thead>
+            <tbody id="batchTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: PISTA DE AUDITORÍA (HISTORIAL) -->
+    <div id="tab-history" class="tab-pane">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <h2 class="card-title">Pista de Auditoría Inmutable</h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">Registro cronológico de todas las consultas ejecutadas con sello de tiempo y firma SHA-256 para inspectores de la SUDEASEG / SUDEBAN.</p>
+          </div>
+          <a href="/api/audit/export-history" class="btn-primary" style="width: auto; margin: 0; text-decoration: none; padding: 0.65rem 1.25rem; font-size: 0.85rem; background: linear-gradient(135deg, #059669, #10b981);" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            📥 Exportar Informe Oficial a Excel (SUDEASEG / SUDEBAN)
+          </a>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID Consulta</th>
+              <th>Fecha y Hora</th>
+              <th>Documento</th>
+              <th>Nombre Consultado</th>
+              <th>Dictamen</th>
+              <th>Hash SHA-256</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <tr>
+              <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2rem;">No hay consultas en la sesión actual. Ejecute una auditoría en la pestaña principal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: FUENTES Y LISTAS -->
+    <div id="tab-sources" class="tab-pane">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <h2 class="card-title">Catálogo de Fuentes Integradas</h2>
+            <p class="card-subtitle">Control de bases de datos normativas nacionales e internacionales.</p>
+          </div>
+          <button class="btn-primary" id="btnSyncLists" style="width: auto; margin: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            Sincronizar y Reindexar Listas
+          </button>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Fuente Oficial</th>
+              <th>Jurisdicción</th>
+              <th>Registros Indexados</th>
+              <th>Estatus</th>
+            </tr>
+          </thead>
+          <tbody id="sourcesTableBody">
+            <!-- BLOQUE 1: SANCIONES INTERNACIONALES VINCULANTES (GAFI / FATF) -->
+            <tr>
+              <td><strong>OFAC Specially Designated Nationals (SDN & CSL)</strong></td>
+              <td>Estados Unidos (U.S. Department of the Treasury)</td>
+              <td>15,400+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Consejo de Seguridad de las Naciones Unidas (UNSC)</strong></td>
+              <td>Organización de las Naciones Unidas (Global)</td>
+              <td>1,120+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Lista Consolidada de Sanciones de la Unión Europea (UE)</strong></td>
+              <td>Unión Europea (SEAE / EEAS)</td>
+              <td>2,890+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>HM Treasury / OFSI Sanctions List</strong></td>
+              <td>Reino Unido (HM Treasury)</td>
+              <td>4,100+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>INTERPOL Notificaciones Rojas (Red Notices)</strong></td>
+              <td>Internacional (195 Países Miembros)</td>
+              <td>7,300+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Banco Mundial & BID (Empresas Inhabilitadas / Debarred)</strong></td>
+              <td>Bancos Multilaterales de Desarrollo</td>
+              <td>1,250+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Canadá SEMA Sanctions (Medidas Económicas Especiales)</strong></td>
+              <td>Canadá (Global Affairs Canada)</td>
+              <td>980+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+
+            <!-- BLOQUE 2: REGISTROS OFICIALES NACIONALES (VENEZUELA) -->
+            <tr>
+              <td><strong>Padrón Electoral Nacional (CNE)</strong></td>
+              <td>Venezuela (Consejo Nacional Electoral)</td>
+              <td>Servicio no disponible</td>
+              <td><span style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.4); padding: 3px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700;">FUERA DE SERVICIO (TEMPORAL)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Registro de Información Fiscal (SENIAT)</strong></td>
+              <td>Venezuela (Servicio Nacional Integrado Aduanero y Tributario)</td>
+              <td>Enlace Directo RIF</td>
+              <td><span class="tag-verified">EN LÍNEA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Contraloría General de la República (CGR Inhabilitados)</strong></td>
+              <td>Venezuela (Sistema Nacional de Control Fiscal)</td>
+              <td>2,340+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Registro Nacional de Contratistas (RNC / SNC)</strong></td>
+              <td>Venezuela (Servicio Nacional de Contrataciones)</td>
+              <td>145,000+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>SUDEBAN Alertas Financieras & Cuentas Inmovilizadas</strong></td>
+              <td>Venezuela (Superintendencia de las Instituciones del Sector Bancario)</td>
+              <td>3,120+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>SUDEASEG Directorio de Intermediarios Autorizados</strong></td>
+              <td>Venezuela (Superintendencia de la Actividad Aseguradora)</td>
+              <td>8,400+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Tribunal Supremo de Justicia (TSJ / Penal y Cautelares)</strong></td>
+              <td>Venezuela (Poder Judicial / Medidas de Aseguramiento)</td>
+              <td>18,500+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+
+            <!-- BLOQUE 3: PEPS Y ANÁLISIS REPUTACIONAL / ANTIFRAUDE -->
+            <tr>
+              <td><strong>Directorio de PEPs Nacionales</strong></td>
+              <td>Venezuela (Gaceta Oficial / Alta Administración Pública)</td>
+              <td>4,850+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Directorio de PEPs Extranjeros & Multilaterales (GAFI Rec. 12)</strong></td>
+              <td>Internacional (Jefes de Estado, Ministros y Diplomáticos)</td>
+              <td>6,200+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Prensa Adversa Estructurada (Adverse Media OSINT)</strong></td>
+              <td>Global (Bases de Datos de Prensa y Noticias de Investigación)</td>
+              <td>Monitoreo Continuo</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Registro Central Antifraude de Siniestros (CAV)</strong></td>
+              <td>Venezuela (Cámara de Aseguradores de Venezuela)</td>
+              <td>12,900+ registros</td>
+              <td><span class="tag-verified">ACTIVA</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL DE CERTIFICADO OFICIAL -->
+  <div id="certModal" class="modal-overlay">
+    <div class="modal-content cert-paper-container">
+      <button class="modal-close-btn no-print" id="btnCloseCert">&times;</button>
+
+      <!-- ENCABEZADO INSTITUCIONAL FORMAL -->
+      <div class="cert-formal-header">
+        <div class="cert-header-left">
+          <div class="cert-republic-text">REPÚBLICA BOLIVARIANA DE VENEZUELA • CONTROL DE RIESGO REGULATORIO</div>
+          <div class="cert-brand-title">GUIARISK <span>COMPLIANCE SUITE</span></div>
+          <div class="cert-sub-brand">SISTEMA NACIONAL DE DEBIDA DILIGENCIA Y PREVENCIÓN LC/FT/FPADM</div>
+        </div>
+        <div class="cert-header-right">
+          <div class="cert-folio-tag">FOLIO DE AUDITORÍA</div>
+          <div class="cert-folio-number" id="modalCertId">GR-XXXX-XXXX</div>
+          <div class="cert-folio-date" id="modalCertHeaderDate">Fecha: --/--/----</div>
+        </div>
+      </div>
+
+      <div class="cert-title-block">
+        <h2 class="cert-main-title">CERTIFICADO OFICIAL DE DEBIDA DILIGENCIA</h2>
+        <div class="cert-legal-sub">
+          Emitido en estricto cumplimiento de la Providencia Administrativa SUDEASEG N° 514, Resoluciones SUDEBAN, Ley Orgánica contra la Delincuencia Organizada (LOCDO/FT) y Recomendaciones del Grupo de Acción Financiera Internacional (GAFI / FATF).
+        </div>
+      </div>
+
+      <!-- SECCIÓN 1: DATOS DEL SUJETO -->
+      <div class="cert-section page-break-avoid">
+        <div class="cert-section-title">I. IDENTIFICACIÓN DEL SUJETO EVALUADO & REGISTROS NACIONALES</div>
+        <table class="cert-table">
+          <colgroup>
+            <col style="width: 22%;">
+            <col style="width: 32%;">
+            <col style="width: 18%;">
+            <col style="width: 28%;">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>Titular / Razón Social:</th>
+              <td style="font-weight: 700;" id="modalCertName">-</td>
+              <th>Tipo Sujeto:</th>
+              <td id="modalCertType">-</td>
+            </tr>
+            <tr>
+              <th>Documento / RIF:</th>
+              <td style="font-family: var(--font-mono); font-weight: 700;" id="modalCertDoc">-</td>
+              <th>Jurisdicción:</th>
+              <td id="modalCertCountry">Venezuela</td>
+            </tr>
+            <tr>
+              <th>Padrón Electoral (CNE):</th>
+              <td id="modalCertCneStatus">-</td>
+              <th>Centro Electoral:</th>
+              <td id="modalCertCneCenter">-</td>
+            </tr>
+            <tr>
+              <th>Condición SENIAT:</th>
+              <td id="modalCertSeniatCond">-</td>
+              <th>Retención IVA:</th>
+              <td id="modalCertSeniatTax">-</td>
+            </tr>
+            <tr id="modalCertSeniatAlertRow" style="display: none;">
+              <th style="color: #991b1b; background: #fff1f2;">Alerta Tributaria:</th>
+              <td colspan="3" id="modalCertSeniatAlert" style="background: #fef2f2; color: #991b1b; font-size: 0.74rem; font-weight: 600;">-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- SUB-SECCIÓN BENEFICIARIOS FINALES (UBO) SI APLICA -->
+        <div id="modalCertUboContainer" style="display: none; margin-top: 8px;">
+          <div style="font-size: 0.73rem; font-weight: 800; color: #1e3a8a; text-transform: uppercase; margin-bottom: 4px;">
+            Beneficiarios Finales y Control Accionario Auditados (UBO ≥ 25%):
+          </div>
+          <table class="cert-table">
+            <colgroup>
+              <col style="width: 20%;">
+              <col style="width: 42%;">
+              <col style="width: 16%;">
+              <col style="width: 22%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Documento</th>
+                <th>Accionista / Beneficiario</th>
+                <th>% Acciones</th>
+                <th style="text-align: center;">Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="modalCertUboBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: DICTAMEN OFICIAL -->
+      <div class="cert-section page-break-avoid">
+        <div class="cert-section-title">II. DICTAMEN OFICIAL Y MATRIZ DE RIESGO NORMATIVO</div>
+        <div class="cert-verdict-box" id="modalCertVerdictBox">
+          <div class="verdict-banner-text" id="modalCertVerdictText">CONFORME / SIN HALLAZGOS VINCULANTES</div>
+          <div class="verdict-banner-score" id="modalCertScore">Score de Riesgo: 5 / 100 • RIESGO BAJO</div>
+          <div id="modalCertEbrStrip" style="margin-top: 6px; font-size: 0.72rem; color: #334155; background: rgba(255,255,255,0.7); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); display: inline-block;">
+            Matriz EBR: Ramo Estándar • Canal Autorizado • Gran Caracas
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: FUENTES CONSULTADAS -->
+      <div class="cert-section page-break-avoid">
+        <div class="cert-section-title">III. SÍNTESIS DE FUENTES VINCULANTES CONSULTADAS (18 BASES DE DATOS)</div>
+        <table class="cert-table">
+          <colgroup>
+            <col style="width: 35%;">
+            <col style="width: 23%;">
+            <col style="width: 19%;">
+            <col style="width: 23%;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Organismo / Lista Oficial</th>
+              <th>Jurisdicción</th>
+              <th>Estatus del Cotejo</th>
+              <th style="text-align: center;">Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OFAC Specially Designated Nationals (SDN & CSL)</td>
+              <td>Estados Unidos (U.S. Treasury)</td>
+              <td>15,400+ Registros Verificados</td>
+              <td id="modalCertOfacStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Consejo de Seguridad de las Naciones Unidas (UNSC)</td>
+              <td>Naciones Unidas (Global)</td>
+              <td>Resoluciones Sancionatorias</td>
+              <td id="modalCertUnStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Unión Europea (SEAE) / Reino Unido (OFSI) / Canadá</td>
+              <td>Europa & América del Norte</td>
+              <td>Listas Sancionatorias Reaseguro</td>
+              <td id="modalCertEuUkStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>INTERPOL (Red Notices) / Banco Mundial & BID</td>
+              <td>Internacional / Multilateral</td>
+              <td>Captura y Debarment Anticorrupción</td>
+              <td id="modalCertInterpolWbStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Padrón Electoral Nacional (CNE)</td>
+              <td>Venezuela (Poder Electoral)</td>
+              <td>Registro de Identidad</td>
+              <td id="modalCertCneTableStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Administración Tributaria (SENIAT)</td>
+              <td>Venezuela (Poder Tributario)</td>
+              <td>Condición y Retenciones RIF</td>
+              <td id="modalCertSeniatTableStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Contraloría General (CGR) / Registro Contratistas (RNC)</td>
+              <td>Venezuela (Control Fiscal / SNC)</td>
+              <td>Inhabilitaciones para Contratar</td>
+              <td id="modalCertCgrRncStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Superintendencias Financieras (SUDEBAN & SUDEASEG)</td>
+              <td>Venezuela (Banca y Seguros)</td>
+              <td>Alertas Financieras & Credenciales</td>
+              <td id="modalCertSudebanSudeasegStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Tribunal Supremo de Justicia (TSJ / Penal)</td>
+              <td>Venezuela (Poder Judicial)</td>
+              <td>Medidas Cautelares de Bienes</td>
+              <td id="modalCertTsjStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Directorio Oficial de PEPs (Nacionales & Extranjeros)</td>
+              <td>Venezuela & Global (GAFI 12)</td>
+              <td>Alta Dirección & Mandatarios</td>
+              <td id="modalCertPepStatus" style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Prensa Adversa (OSINT) & Registro Antifraude (CAV)</td>
+              <td>Investigación & Sector Seguros</td>
+              <td>Riesgo Reputacional y Siniestros</td>
+              <td id="modalCertAdvFraudStatus" style="text-align: center;">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SECCIÓN 4: DETALLE DE HALLAZGOS (SI APLICA) -->
+      <div id="modalCertFindingsSection" class="cert-section page-break-avoid" style="display: none;">
+        <div class="cert-section-title">IV. EXPEDIENTE DE HALLAZGOS Y FUNDAMENTO LEGAL</div>
+        <div id="modalCertFindingsList" class="cert-findings-wrapper">
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: CRIPTOGRAFÍA Y QR -->
+      <div class="cert-section page-break-avoid">
+        <div class="cert-section-title">V. AUTENTICACIÓN DIGITAL & VERIFICACIÓN EN TIEMPO REAL</div>
+        <div class="cert-crypto-grid">
+          <div class="cert-qr-container">
+            <img id="modalQrImg" src="" alt="Código QR de Verificación" class="cert-qr-image">
+            <div class="cert-qr-legend">Escanee con cámara móvil para validar autenticidad en vivo</div>
+          </div>
+          <div class="cert-hash-container">
+            <div style="font-size: 0.75rem; font-weight: 700; margin-bottom: 2px;">FIRMA CRIPTOGRÁFICA SHA-256 (INMUTABLE):</div>
+            <div class="cert-hash-box" id="modalCertHash">...</div>
+            <div style="font-size: 0.72rem; color: #475569; margin-top: 4px;">
+              Este hash certifica la inalterabilidad de este documento. Cualquier discrepancia en el texto, fecha o dictamen invalidará la firma ante la SUDEASEG / SUDEBAN.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: FIRMA Y SELLO -->
+      <div class="cert-footer-grid page-break-avoid">
+        <div class="cert-footer-col">
+          <div class="cert-signature-line"></div>
+          <div class="cert-officer-name" id="modalCertOfficer">Manuel Guía</div>
+          <div class="cert-officer-role">Oficial de Cumplimiento / Analista Senior</div>
+          <div class="cert-officer-reg">Matrícula RegTech: OFC-2026-MG</div>
+        </div>
+        <div class="cert-footer-col" style="text-align: right;">
+          <div class="cert-seal-box">
+            <div class="cert-seal-text">SELLO DE CONFORMIDAD DIGITAL</div>
+            <div class="cert-seal-sub">GUIARISK AUDIT SYSTEM • VERIFICADO</div>
+            <div class="cert-seal-date" id="modalCertDate">Fecha: --/--/----</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTONES DE ACCIÓN (SOLO VISIBLES EN PANTALLA, NUNCA EN EL PDF) -->
+      <div class="no-print" style="margin-top: 1.5rem; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 1rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn-primary" id="btnDownloadPdf" style="display: inline-flex; width: auto; padding: 0.75rem 1.75rem; font-size: 0.95rem; background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+          📥 Descargar Documento PDF Oficial (.pdf)
+        </button>
+        <button class="btn-secondary" onclick="window.print()" style="display: inline-flex; width: auto; padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+          🖨️ Imprimir / Vista Previa
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL DE DESCARTE DE HOMONIMIA -->
+  <div id="dismissModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 520px; background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-subtle);">
+      <button class="modal-close-btn" id="btnCloseDismiss" style="color: var(--text-muted);">&times;</button>
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Descarte Formal de Homonimia</h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Conforme a la normativa antilavado, todo descarte de alerta requiere justificación técnica obligatoria que quedará sellada en el acta de auditoría.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label">Coincidencia a Descartar:</label>
+        <div id="dismissMatchName" style="font-weight: 700; color: var(--risk-medium); font-size: 0.9rem; margin-bottom: 0.5rem;">-</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Justificación del Oficial de Cumplimiento *</label>
+        <textarea id="dismissJustification" class="form-input" rows="4" placeholder="Ej: Se descarta por discrepancia etaria evidente (diferencia de 25 años) y nacionalidad distinta (sancionado extranjero vs cliente venezolano con Cédula verificada en CNE)."></textarea>
+      </div>
+
+      <button type="button" class="btn-primary" id="btnConfirmDismiss" style="background: linear-gradient(135deg, #059669, #10b981);">
+        ✓ Confirmar Descarte y Sellar Certificado
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

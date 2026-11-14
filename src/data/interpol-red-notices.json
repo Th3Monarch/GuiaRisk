@@ -1,0 +1,30 @@
+[
+  {
+    "id": "INT-4001",
+    "name": "LOPEZ BELLO, Samark Jose",
+    "aliases": ["Samark Lopez"],
+    "type": "Individual",
+    "program": "INTERPOL RED NOTICE (Fugitivo Internacional)",
+    "nationality": "Venezuela",
+    "dob": "1974-09-10",
+    "idNumber": "V-12093847",
+    "remarks": "Notificación Roja emitida por orden de captura internacional por conspiración para el narcotráfico y legitimación de capitales.",
+    "caseDetails": "Buscado activamente para enjuiciamiento criminal tras acusaciones federales de lavado de activos y ocultamiento de beneficios ilícitos en múltiples jurisdicciones a través de fideicomisos no revelados.",
+    "legalBasis": "Estatuto de INTERPOL Art. 82 • Convención de Palermo contra la Delincuencia Organizada Transnacional",
+    "complianceImpact": "ALERTA POLICIAL MÁXIMA: Denegación automática de cualquier póliza de vida, salud, fianza o patrimonio. Comunicación confidencial a la Unidad de Inteligencia Financiera."
+  },
+  {
+    "id": "INT-4002",
+    "name": "DUBOIS, Jean-Claude",
+    "aliases": ["Jean Dubois"],
+    "type": "Individual",
+    "program": "INTERPOL RED NOTICE (Fraude y Narcotráfico)",
+    "nationality": "Francia",
+    "dob": "1965-04-18",
+    "idNumber": "FR-PASSP-9876541",
+    "remarks": "Notificación Roja solicitada por tribunales franceses por tráfico marítimo de cocaína y quiebra fraudulenta.",
+    "caseDetails": "Líder de una red de transporte marítimo de estupefacientes que utilizaba pólizas de seguro de carga adulteradas para simular siniestros en alta mar.",
+    "legalBasis": "Tratado de Extradición y Cooperación Penal Internacional • Código Penal Francés Art. 222-37",
+    "complianceImpact": "RECHAZO VINCULANTE: Inhabilitación para la suscripción de pólizas de transporte o casco de buques."
+  }
+]

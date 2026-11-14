@@ -1,0 +1,211 @@
+[
+  {
+    "cedula": "V-12345678",
+    "fullName": "GONZALEZ PEREZ, Carlos Eduardo",
+    "gender": "M",
+    "state": "Distrito Capital",
+    "municipality": "Libertador",
+    "parish": "Catedral",
+    "center": "Liceo Fermín Toro",
+    "status": "Inscrito Activo",
+    "approxDOB": "1975-04-12"
+  },
+  {
+    "cedula": "V-19876543",
+    "fullName": "RODRIGUEZ MARQUEZ, Mariana Alejandra",
+    "gender": "F",
+    "state": "Miranda",
+    "municipality": "Chacao",
+    "parish": "Chacao",
+    "center": "U.E. San Ignacio de Loyola",
+    "status": "Inscrito Activo",
+    "approxDOB": "1991-09-24"
+  },
+  {
+    "cedula": "V-14228901",
+    "fullName": "HERNANDEZ SILVA, Carmen Beatriz",
+    "gender": "F",
+    "state": "Miranda",
+    "municipality": "Baruta",
+    "parish": "Nuestra Señora del Rosario",
+    "center": "Colegio San Francisco de Asís",
+    "status": "Inscrito Activo",
+    "approxDOB": "1980-06-15"
+  },
+  {
+    "cedula": "V-20112334",
+    "fullName": "LOPEZ PEREZ, Carlos Alberto",
+    "gender": "M",
+    "state": "Carabobo",
+    "municipality": "Valencia",
+    "parish": "San José",
+    "center": "Colegio La Salle Valencia",
+    "status": "Inscrito Activo",
+    "approxDOB": "1993-08-11"
+  },
+  {
+    "cedula": "V-15890432",
+    "fullName": "GUIA CHACON, Manuel Alejandro",
+    "gender": "M",
+    "state": "Miranda",
+    "municipality": "Sucre",
+    "parish": "Petare",
+    "center": "U.E. José Félix Ribas",
+    "status": "Inscrito Activo",
+    "approxDOB": "1985-03-20"
+  },
+  {
+    "cedula": "V-18456123",
+    "fullName": "MENDOZA PAREDES, Valentina Sofia",
+    "gender": "F",
+    "state": "Anzoátegui",
+    "municipality": "Diego Bautista Urbaneja",
+    "parish": "Lechería",
+    "center": "U.E. Colegio Elena de Haas",
+    "status": "Inscrito Activo",
+    "approxDOB": "1988-11-05"
+  },
+  {
+    "cedula": "V-11894220",
+    "fullName": "MENDOZA CASTILLO, Rafael Eduardo",
+    "gender": "M",
+    "state": "Distrito Capital",
+    "municipality": "Libertador",
+    "parish": "La Candelaria",
+    "center": "Complejo Educativo Andrés Bello",
+    "status": "Inscrito Activo",
+    "approxDOB": "1971-04-18"
+  },
+  {
+    "cedula": "V-6842109",
+    "fullName": "MARTINEZ RIVAS, Jose Antonio",
+    "gender": "M",
+    "state": "Distrito Capital",
+    "municipality": "Libertador",
+    "parish": "El Recreo",
+    "center": "U.E. Gran Colombia",
+    "status": "Inscrito Activo",
+    "approxDOB": "1965-09-30"
+  },
+  {
+    "cedula": "V-17540112",
+    "fullName": "RAMIREZ MORALES, Laura Elena",
+    "gender": "F",
+    "state": "Miranda",
+    "municipality": "Chacao",
+    "parish": "Chacao",
+    "center": "Colegio Cristo Rey",
+    "status": "Inscrito Activo",
+    "approxDOB": "1986-07-22"
+  },
+  {
+    "cedula": "V-23541890",
+    "fullName": "AL-MASRI, Hisham",
+    "gender": "M",
+    "state": "Nueva Esparta",
+    "municipality": "Mariño",
+    "parish": "Porlamar",
+    "center": "Liceo Bolivariano Nueva Esparta",
+    "status": "Inscrito Activo",
+    "approxDOB": "1997-12-03"
+  },
+  {
+    "cedula": "V-8750341",
+    "fullName": "SUAREZ BRICEÑO, Gonzalo Andres",
+    "gender": "M",
+    "state": "Distrito Capital",
+    "municipality": "Libertador",
+    "parish": "San Pedro",
+    "center": "Facultad de Ciencias Jurídicas UCV",
+    "status": "Inscrito Activo",
+    "approxDOB": "1962-01-14"
+  },
+  {
+    "cedula": "V-15893201",
+    "fullName": "PARRA RIVERO, Luis Manuel",
+    "gender": "M",
+    "state": "Yaracuy",
+    "municipality": "San Felipe",
+    "parish": "San Felipe",
+    "center": "U.E. Colegio Fray Luis de León",
+    "status": "Inscrito Activo",
+    "approxDOB": "1978-07-07"
+  },
+  {
+    "cedula": "V-12093847",
+    "fullName": "LOPEZ BELLO, Samark Jose",
+    "gender": "M",
+    "state": "Carabobo",
+    "municipality": "Valencia",
+    "parish": "San José",
+    "center": "Colegio Sagrado Corazón",
+    "status": "Inscrito Activo",
+    "approxDOB": "1974-09-10"
+  },
+  {
+    "cedula": "V-10293847",
+    "fullName": "MARTINEZ CASTILLO, Pedro Jose",
+    "gender": "M",
+    "state": "Miranda",
+    "municipality": "Chacao",
+    "parish": "Chacao",
+    "center": "U.E. Colegio Don Bosco",
+    "status": "Inscrito Activo",
+    "approxDOB": "1970-03-21"
+  },
+  {
+    "cedula": "V-13456789",
+    "fullName": "GOMEZ SILVA, Carlos Enrique",
+    "gender": "M",
+    "state": "Aragua",
+    "municipality": "Girardot",
+    "parish": "Las Delicias",
+    "center": "Escuela Básica Aragua",
+    "status": "Inscrito Activo",
+    "approxDOB": "1982-05-14"
+  },
+  {
+    "cedula": "V-16789012",
+    "fullName": "MORALES RAMOS, Diego Fernando",
+    "gender": "M",
+    "state": "Zulia",
+    "municipality": "Maracaibo",
+    "parish": "Chiquinquirá",
+    "center": "Liceo Rafael María Baralt",
+    "status": "Inscrito Activo",
+    "approxDOB": "1985-02-19"
+  },
+  {
+    "cedula": "V-7654321",
+    "fullName": "ANDRADE CEDILLO, Alejandro",
+    "gender": "M",
+    "state": "Distrito Capital",
+    "municipality": "Libertador",
+    "parish": "La Candelaria",
+    "center": "Liceo Andrés Bello",
+    "status": "Inscrito Activo",
+    "approxDOB": "1964-08-02"
+  },
+  {
+    "cedula": "V-6543210",
+    "fullName": "GONZALEZ LOPEZ, Gustavo Enrique",
+    "gender": "M",
+    "state": "Miranda",
+    "municipality": "Baruta",
+    "parish": "El Cafetal",
+    "center": "Colegio Humboldt",
+    "status": "Inscrito Activo",
+    "approxDOB": "1960-11-02"
+  },
+  {
+    "cedula": "V-10293848",
+    "fullName": "GORRIN BELISARIO, Raul Antonio",
+    "gender": "M",
+    "state": "Miranda",
+    "municipality": "Baruta",
+    "parish": "Nuestra Señora del Rosario",
+    "center": "Colegio Los Arcos",
+    "status": "Inscrito Activo",
+    "approxDOB": "1968-11-22"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "UN-SC-0891",
+    "name": "KABILA MUKOKO, Jean-Pierre",
+    "aliases": ["Commander Jean"],
+    "type": "Individual",
+    "resolution": "Resolución CS ONU 1533 (2004)",
+    "nationality": "República Democrática del Congo",
+    "dob": "1970-02-14",
+    "remarks": "Sujeto a congelamiento general de activos y prohibición internacional de viaje por violación al embargo de armas y crímenes de guerra.",
+    "caseDetails": "Designado por el Comité de Sanciones del Consejo de Seguridad de la ONU por reclutamiento forzado, tráfico ilícito de minerales y financiación armada ilegal en la región de los Grandes Lagos.",
+    "legalBasis": "Resolución 1533 (2004) y Resoluciones Sucesivas del Consejo de Seguridad de las Naciones Unidas",
+    "complianceImpact": "VINCULANTE GLOBAL: Mandato de cumplimiento obligatorio por derecho internacional. Congelamiento precautorio de fondos."
+  },
+  {
+    "id": "UN-SC-0922",
+    "name": "KOREA KWANGSON BANK",
+    "aliases": ["KKBC"],
+    "type": "Entity",
+    "resolution": "Resolución CS ONU 1718 (2006)",
+    "nationality": "República Popular Democrática de Corea",
+    "dob": null,
+    "remarks": "Entidad bancaria sancionada por facilitar transferencias financieras a programas de proliferación de armas de destrucción masiva.",
+    "caseDetails": "Entidad estatal identificada como vehículo de transferencias encubiertas para la adquisición de tecnología nuclear y misilística sujeta a embargo universal.",
+    "legalBasis": "Resolución 1718 (2006) del Consejo de Seguridad de la ONU • Estándares GAFI / FATF Recomendación 7",
+    "complianceImpact": "PROHIBICIÓN TOTAL: Prohibida toda relación de corresponsalía bancaria, pólizas de transporte o coberturas de reaseguro."
+  },
+  {
+    "id": "UN-SC-1044",
+    "name": "AL-MASRI, Hisham",
+    "aliases": ["Abu Hisham"],
+    "type": "Individual",
+    "resolution": "Resolución CS ONU 1267 (1999) / 1989",
+    "nationality": "Yemen",
+    "dob": "1981-10-09",
+    "remarks": "Individuo vinculado a redes terroristas en la Península Arábiga y logística de financiamiento ilícito.",
+    "caseDetails": "Sancionado por el Consejo de Seguridad de la ONU por prestar apoyo financiero y material a organizaciones extremistas armadas.",
+    "legalBasis": "Régimen de Sanciones 1267/1989/2253 de la ONU contra Al-Qaida y organizaciones asociadas",
+    "complianceImpact": "BLOQUEO INTERNACIONAL: Ninguna institución financiera o aseguradora puede prestar servicios directos ni indirectos."
+  }
+]

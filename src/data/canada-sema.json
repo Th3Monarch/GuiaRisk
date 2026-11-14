@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CAN-6001",
+    "name": "GONZALEZ LOPEZ, Gustavo Enrique",
+    "aliases": ["Gustavo Gonzalez Lopez"],
+    "type": "Individual",
+    "program": "SEMA VENEZUELA (Special Economic Measures Act)",
+    "nationality": "Venezuela",
+    "dob": "1960-11-02",
+    "idNumber": "V-6543210",
+    "remarks": "Sancionado por el Gobierno de Canadá bajo la Ley de Medidas Económicas Especiales por violaciones graves de derechos humanos y corrupción.",
+    "caseDetails": "Inclusión en la lista consolidada de la División de Sanciones de Asuntos Globales de Canadá. Prohibición estricta a cualquier ciudadano o empresa sujeta a leyes canadienses de mantener tratos comerciales o financieros.",
+    "legalBasis": "Special Economic Measures (Venezuela) Regulations (SOR/2017-204)",
+    "complianceImpact": "BLOQUEO CANADÁ: Inhabilitación para contratación con aseguradoras o reaseguradoras con sede o filiales en territorio canadiense."
+  }
+]

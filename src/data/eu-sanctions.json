@@ -1,0 +1,30 @@
+[
+  {
+    "id": "EU-2001",
+    "name": "EL AISSAMI MADDAH, Tareck Zaidan",
+    "aliases": ["Tareck El Aissami"],
+    "type": "Individual",
+    "program": "EU-VENEZUELA (Reglamento UE 2017/2063)",
+    "nationality": "Venezuela",
+    "dob": "1974-11-12",
+    "idNumber": "V-11894220",
+    "remarks": "Sancionado por el Consejo de la Unión Europea por socavamiento de la democracia y malversación masiva de fondos en PDVSA Cripto.",
+    "caseDetails": "Inclusión en la lista consolidada de sanciones financieras de la UE en virtud de la Decisión PESC 2017/2074. Sujeto a prohibición de viaje y congelamiento total de fondos y recursos económicos en territorio europeo.",
+    "legalBasis": "Reglamento (UE) 2017/2063 del Consejo • Decisión (PESC) 2017/2074",
+    "complianceImpact": "BLOQUEO VINCULANTE UE: Prohibición de suscripción o reaseguro en jurisdicción europea. Notificación preceptiva a reaseguradoras de la UE."
+  },
+  {
+    "id": "EU-2002",
+    "name": "PETRO-TRANS GLOBAL TRADING BV",
+    "aliases": ["PetroTrans Europe", "PT Global Trade"],
+    "type": "Entity",
+    "program": "EU-SANCTIONS-TRADE",
+    "nationality": "Países Bajos",
+    "dob": null,
+    "idNumber": "NL-88492019",
+    "remarks": "Empresa pantalla utilizada para eludir medidas restrictivas de la Unión Europea sobre exportaciones energéticas ilícitas.",
+    "caseDetails": "Identificada por la Fiscalía Europea como vehículo societario opaco para la triangulación de pagos y legitimación de capitales procedentes de desfalcos petroleros.",
+    "legalBasis": "Reglamento (UE) N° 833/2014 • Normativa Anti-Money Laundering Directive (6AMLD)",
+    "complianceImpact": "PROHIBICIÓN TOTAL DE RELACIÓN: Inhabilitación operativa inmediata para pólizas de fianza marítima y transporte de crudo."
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "UK-3001",
+    "name": "GORRIN BELISARIO, Raul Antonio",
+    "aliases": ["Raul Gorrin"],
+    "type": "Individual",
+    "program": "UK-GLOBAL-ANTI-CORRUPTION (Sanctions and Anti-Money Laundering Act)",
+    "nationality": "Venezuela",
+    "dob": "1968-11-22",
+    "idNumber": "V-10293848",
+    "remarks": "Designado formalmente por el Reino Unido (OFSI) por sobornos multimillonarios y lavado de dinero a través del sistema financiero británico.",
+    "caseDetails": "Inscrito en la lista unificada de sanciones del HM Treasury (Reino Unido). Prohibición estricta a entidades británicas o intermediarios del mercado de Londres (Lloyd's) de prestar servicios de reaseguro o cobertura.",
+    "legalBasis": "UK Sanctions and Anti-Money Laundering Act 2018 (SAMLA) • Regulations 2021",
+    "complianceImpact": "BLOQUEO REINO UNIDO: Inhabilitación para colocaciones de reaseguro en el mercado londinense o intermediación en libras esterlinas (GBP)."
+  },
+  {
+    "id": "UK-3002",
+    "name": "GOLD COAST FINANCIAL SERVICES CORP",
+    "aliases": ["Gold Coast Reinsurance Ltd"],
+    "type": "Entity",
+    "program": "UK-FINANCIAL-SANCTIONS",
+    "nationality": "Reino Unido",
+    "dob": null,
+    "idNumber": "UK-COMP-09871234",
+    "remarks": "Entidad fachada británica sancionada por emitir cartas de crédito y garantías financieras fraudulentas para esquivar bloqueos internacionales.",
+    "caseDetails": "Inmovilización de activos ordenada por HM Treasury en coordinación con la National Crime Agency (NCA) tras detectar desvío de capitales hacia paraísos fiscales.",
+    "legalBasis": "UK Financial Services and Markets Act (FSMA) • Anti-Terrorism, Crime and Security Act",
+    "complianceImpact": "INVALIDEZ DE GARANTÍAS: Toda contragarantía emitida por esta entidad carece de valor normativo ante la SUDEASEG."
+  }
+]

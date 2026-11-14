@@ -1,0 +1,101 @@
+[
+  {
+    "rif": "V-12345678-1",
+    "name": "CARLOS EDUARDO GONZALEZ PEREZ",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Ordinario",
+    "withholdingRate": "0%",
+    "economicActivity": "Servicios Profesionales de Asesoría y Consultoría"
+  },
+  {
+    "rif": "V-19876543-7",
+    "name": "MARIANA ALEJANDRA RODRIGUEZ MARQUEZ",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Formal",
+    "withholdingRate": "0%",
+    "economicActivity": "Comercio al por menor"
+  },
+  {
+    "rif": "J-31099882-5",
+    "name": "INVERSIONES MAR DE PLATA C.A.",
+    "type": "Persona Jurídica",
+    "status": "Bloqueado / Sujeto a Verificación Especial",
+    "taxCategory": "Contribuyente Especial Sujeto a Retención",
+    "withholdingRate": "75%",
+    "economicActivity": "Comercialización y Distribución Mayorista"
+  },
+  {
+    "rif": "J-40912389-8",
+    "name": "SEGUROS Y CORRETAJE NACIONAL S.A.",
+    "type": "Persona Jurídica",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Especial",
+    "withholdingRate": "75%",
+    "economicActivity": "Actividades de Seguros, Reaseguros y Fianzas"
+  },
+  {
+    "rif": "V-15890432-9",
+    "name": "MANUEL ALEJANDRO GUIA CHACON",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Ordinario",
+    "withholdingRate": "0%",
+    "economicActivity": "Desarrollo de Sistemas, Tecnología y Soluciones Informáticas"
+  },
+  {
+    "rif": "V-18456123-5",
+    "name": "VALENTINA SOFIA MENDOZA PAREDES",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Formal",
+    "withholdingRate": "0%",
+    "economicActivity": "Servicios de Medicina Especializada y Cirugía"
+  },
+  {
+    "rif": "V-11894220-1",
+    "name": "RAFAEL EDUARDO MENDOZA CASTILLO",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Ordinario",
+    "withholdingRate": "0%",
+    "economicActivity": "Administración y Gerencia Corporativa"
+  },
+  {
+    "rif": "V-6842109-4",
+    "name": "JOSE ANTONIO MARTINEZ RIVAS",
+    "type": "Persona Natural",
+    "status": "Sujeto a Medida Cautelar / Bloqueado",
+    "taxCategory": "Contribuyente con Alerta Especial",
+    "withholdingRate": "100%",
+    "economicActivity": "Contratación Pública y Servicios Generales"
+  },
+  {
+    "rif": "V-17540112-8",
+    "name": "LAURA ELENA RAMIREZ MORALES",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Formal",
+    "withholdingRate": "0%",
+    "economicActivity": "Servicios de Gobierno y Administración Pública"
+  },
+  {
+    "rif": "V-23541890-4",
+    "name": "HISHAM AL-MASRI",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Formal",
+    "withholdingRate": "0%",
+    "economicActivity": "Comercio de Alimentos y Víveres"
+  },
+  {
+    "rif": "V-8750341-7",
+    "name": "GONZALO ANDRES SUAREZ BRICEÑO",
+    "type": "Persona Natural",
+    "status": "Activo",
+    "taxCategory": "Contribuyente Ordinario",
+    "withholdingRate": "0%",
+    "economicActivity": "Servicios Jurídicos y de Magistratura"
+  }
+]

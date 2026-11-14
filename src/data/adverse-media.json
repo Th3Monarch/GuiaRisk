@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ADV-4001",
+    "name": "ANDRADE CEDILLO, Alejandro",
+    "aliases": ["Alejandro Andrade", "El Tuerto Andrade"],
+    "type": "Individual",
+    "program": "ADVERSE MEDIA - LAVADO DE ACTIVOS Y CORRUPCIÓN FINANCIERA",
+    "nationality": "Venezuela",
+    "dob": "1964-08-02",
+    "idNumber": "V-7654321",
+    "remarks": "Múltiples reportes de investigación periodística internacional y confesión judicial de lavado de más de 1.000 millones de USD en la banca estadounidense y europea.",
+    "caseDetails": "Investigaciones periodísticas del Consorcio Internacional de Periodistas de Investigación (ICIJ) y medios financieros internacionales. Confesó haber recibido sobornos millonarios a cambio de adjudicar operaciones de cambio preferencial de divisas del Tesoro Nacional.",
+    "legalBasis": "Estándares GAFI de Debida Diligencia Basada en Fuentes Abiertas (OSINT) • Providencia SUDEASEG N° 514",
+    "complianceImpact": "ALERTA REPUTACIONAL CRÍTICA: Riesgo inminente de daño reputacional y decomiso de fondos. La entidad aseguradora debe abstenerse de entablar relaciones de negocios."
+  },
+  {
+    "id": "ADV-4002",
+    "name": "AGROPECUARIA EL PARAISO C.A.",
+    "aliases": ["AgroParaiso C.A."],
+    "type": "Entity",
+    "program": "ADVERSE MEDIA - CONTRABANDO Y MINERÍA ILEGAL",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-30776655-2",
+    "remarks": "Señalamientos periodísticos fundados en medios nacionales sobre presunta vinculación en contrabando de combustible y minería ilegal en el Arco Minero.",
+    "caseDetails": "Reportajes de investigación de portales económicos documentaron el uso de maquinaria pesada asegurada en actividades de extracción no autorizada de minerales en el estado Bolívar.",
+    "legalBasis": "Ley Penal del Ambiente • Ley Orgánica contra la Delincuencia Organizada (LOCDO/FT)",
+    "complianceImpact": "INSPECCIÓN FÍSICA PREVIA: Requiere inspección pericial in situ obligatoria previa a la suscripción de cualquier póliza de equipo pesado o transporte."
+  }
+]

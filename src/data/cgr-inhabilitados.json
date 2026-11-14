@@ -1,0 +1,30 @@
+[
+  {
+    "id": "CGR-7001",
+    "name": "PARRA RIVERO, Luis Manuel",
+    "aliases": ["Luis Parra"],
+    "type": "Individual",
+    "program": "INHABILITACIÓN CGR (Art. 105 Ley Orgánica CGR)",
+    "nationality": "Venezuela",
+    "dob": "1978-07-07",
+    "idNumber": "V-15893201",
+    "remarks": "Inhabilitado formalmente por la Contraloría General de la República por 15 años para el ejercicio de funciones públicas y suscripción de contratos con el Estado.",
+    "caseDetails": "Resolución N° 01-00-000342 de la Contraloría General de la República publicada en Gaceta Oficial. La sanción administrativa se dictó tras auditorías que evidenciaron inconsistencias graves patrimoniales y omisión de justificación de fondos.",
+    "legalBasis": "Ley Orgánica de la Contraloría General de la República y del Sistema Nacional de Control Fiscal (Art. 105) • Gaceta Oficial N° 42.120",
+    "complianceImpact": "INHABILITACIÓN PARA CONTRATAR CON EL ESTADO: Prohibición de actuar como representante legal o fiador en pólizas de cumplimiento de contratos públicos."
+  },
+  {
+    "id": "CGR-7002",
+    "name": "SUMINISTROS Y LOGISTICA GUAYANA C.A.",
+    "aliases": ["Sumilog Guayana C.A."],
+    "type": "Entity",
+    "program": "SANCIÓN ADMINISTRATIVA CGR",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-30882190-4",
+    "remarks": "Empresa inhabilitada por 5 años para contratar con organismos del Estado por sobrefacturación y simulación de entrega de suministros.",
+    "caseDetails": "Expediente administrativo CGR-DCA-2023-019. Se determinó daño patrimonial al Estado por más de 12 millones de dólares en adjudicaciones directas del sector de empresas básicas de Guayana.",
+    "legalBasis": "Ley de Contrataciones Públicas Art. 167 • Resolución CGR N° 01-00-000512",
+    "complianceImpact": "BLOQUEO EN FIANZAS PÚBLICAS: Ninguna aseguradora autorizada por la SUDEASEG puede emitir fianzas de anticipo ni de fiel cumplimiento a favor de entes gubernamentales para esta empresa."
+  }
+]

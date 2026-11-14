@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SIN-5001",
+    "name": "MORALES RAMOS, Diego Fernando",
+    "aliases": ["Diego Morales"],
+    "type": "Individual",
+    "program": "ANTIFRAUDE CAV - SINIESTRALIDAD RECURRENTE SOSPECHOSA",
+    "nationality": "Venezuela",
+    "dob": "1985-02-19",
+    "idNumber": "V-16789012",
+    "remarks": "Alerta roja en el Registro Central de Siniestros de la Cámara de Aseguradores: 4 declaraciones de Pérdida Total de vehículos en un lapso de 18 meses en distintas compañías.",
+    "caseDetails": "El Comité Técnico de Prevención de Fraude identificó un patrón de simulación de accidentes de tránsito con vehículos de alta gama adquiridos con pólizas a todo riesgo, cobrando indemnizaciones cruzadas.",
+    "legalBasis": "Ley del Contrato de Seguro Art. 40 (Mala fe y pérdida del derecho a indemnización) • Providencia SUDEASEG N° 514",
+    "complianceImpact": "BLOQUEO EN RAMO AUTOMÓVIL: Prohibición de suscripción de pólizas de cobertura amplia. Exige peritaje técnico forense en caso de cualquier solicitud de cobertura básica."
+  },
+  {
+    "id": "SIN-5002",
+    "name": "TRANSPORTES Y CARGA PESADA LOS LLANOS C.A.",
+    "aliases": ["TransLlanos C.A."],
+    "type": "Entity",
+    "program": "ANTIFRAUDE CAV - FRAUDE DE CARGA DETECTADO",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-31445566-7",
+    "remarks": "Empresa reportada por intento de cobro fraudulento de siniestro de carga terrestre de víveres reportada como robada en carretera nacional.",
+    "caseDetails": "Investigación pericial y judicial demostró que la mercancía asegurada nunca fue despachada y los documentos de porte y guías SADA eran forjados.",
+    "legalBasis": "Código Penal Art. 462 (Estafa agravada al seguro) • Ley de la Actividad Aseguradora Art. 165",
+    "complianceImpact": "DENEGACIÓN DE COBERTURA: Suspensión de líneas de seguro de transporte terrestre y responsabilidad civil de carga."
+  }
+]

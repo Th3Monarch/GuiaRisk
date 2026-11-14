@@ -1,0 +1,30 @@
+[
+  {
+    "id": "RNC-8001",
+    "name": "INVERSIONES LOS ANDES 2020 C.A.",
+    "aliases": ["Los Andes 2020"],
+    "type": "Entity",
+    "program": "RNC - ESTATUS IRREGULAR / NO CALIFICADA",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-41238901-5",
+    "remarks": "Inscripción en el RNC en estatus SUSPENDIDO por falta de actualización de comisario, insolvencia laboral y estados financieros no auditados.",
+    "caseDetails": "El Servicio Nacional de Contrataciones (SNC) bloqueó el certificado electrónico de calificación por incumplimiento del Art. 30 de la Ley de Contrataciones Públicas. La empresa no puede participar en concursos abiertos ni cerrados.",
+    "legalBasis": "Ley de Contrataciones Públicas Art. 30, 48 • Normativa SNC",
+    "complianceImpact": "ALERTA CONTRACTUAL: Riesgo severo de nulidad de contratos de fianza al carecer el tomador de habilitación legal para licitar."
+  },
+  {
+    "id": "RNC-8002",
+    "name": "CONSTRUCTORA Y SERVICIOS VEPREM C.A.",
+    "aliases": ["Veprem C.A."],
+    "type": "Entity",
+    "program": "RNC - SANCIÓN POR RESCISIÓN UNILATERAL",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-31556789-0",
+    "remarks": "Sancionada con inhabilitación de 3 años por rescisión culposa de contrato de obra pública en el estado Carabobo.",
+    "caseDetails": "El ente contratante ejecutó la fianza de anticipo y demandó por abandono de obra. El SNC inscribió la sanción firme inhabilitante en el catálogo público de proveedores sancionados.",
+    "legalBasis": "Ley de Contrataciones Públicas Art. 167 numeral 2 • Gaceta Oficial N° 41.890",
+    "complianceImpact": "ALERTA ROJA EN FIANZAS: Prohibición de suscripción de nuevos afianzamientos patrimoniales o de cumplimiento."
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "WB-5001",
+    "name": "CONSTRUCTORA NORBERTO ODEBRECHT S.A.",
+    "aliases": ["Odebrecht", "Novonor S.A."],
+    "type": "Entity",
+    "program": "WORLD BANK DEBARMENT (Fraude y Prácticas Corruptas)",
+    "nationality": "Brasil",
+    "dob": null,
+    "idNumber": "BR-CNPJ-151022880001",
+    "remarks": "Inhabilitación cruzada de bancos multilaterales (Banco Mundial, BID, CAF, Banco Asiático) por esquema sistemático de sobornos a altos funcionarios.",
+    "caseDetails": "Inhabilitación formal por violación a las directrices de integridad y adquisiciones del Grupo Banco Mundial. Se extiende a todas las filiales donde mantenga más del 50% de participación accionaria.",
+    "legalBasis": "Acuerdo de Ejecución Mutua de Decisiones de Inhabilitación Multilateral (Cross-Debarment Agreement 2010)",
+    "complianceImpact": "PROHIBICIÓN EN LICITACIONES CON FINANCIAMIENTO MULTILATERAL: Imposibilidad legal de emitir pólizas de fianza de fiel cumplimiento para contratos con fondos del BID o Banco Mundial."
+  },
+  {
+    "id": "WB-5002",
+    "name": "CONSORCIO VIAL DEL CARIBE C.A.",
+    "aliases": ["VialCaribe", "Consorcio Vial"],
+    "type": "Entity",
+    "program": "IDB SANCTIONS (Banco Interamericano de Desarrollo)",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-40192837-2",
+    "remarks": "Inhabilitada por el Comité de Sanciones del BID por prácticas fraudulentas y colusión en obras de vialidad.",
+    "caseDetails": "Presentación de garantías financieras falsas y sobreprecios de obra en proyectos de infraestructura financiados por el BID en la región nororiental de Venezuela.",
+    "legalBasis": "Políticas de Integridad del Grupo BID Art. 3.1 • Providencia SUDEASEG N° 514",
+    "complianceImpact": "ALTO RIESGO EN FIANZAS: Se prohíbe la emisión de avales de licitación y anticipo sin autorización explícita de la Gerencia de Riesgo y Comité de Cumplimiento."
+  }
+]

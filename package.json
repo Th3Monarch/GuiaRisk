@@ -1,0 +1,20 @@
+{
+  "name": "guiarisk-web",
+  "version": "2.0.0",
+  "description": "GuiaRisk - Plataforma Integral de Compliance, Debida Diligencia (KYC) y Prevención LA/FT/FPADM",
+  "main": "server.js",
+  "author": "Manuel Guia",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.4",
+    "xlsx": "^0.18.5"
+  }
+}

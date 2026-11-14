@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SUD-1001",
+    "name": "MARTINEZ CASTILLO, Pedro Jose",
+    "aliases": ["Pedro Martinez"],
+    "type": "Individual",
+    "program": "SUDEASEG - SUSPENSIÓN DE CREDENCIAL DE CORREDOR",
+    "nationality": "Venezuela",
+    "dob": "1970-03-21",
+    "idNumber": "V-10293847",
+    "remarks": "Productor de seguros con credencial N° P-1209 suspendida por la Superintendencia de la Actividad Aseguradora por cobro indebido de primas.",
+    "caseDetails": "Providencia Sancionatoria SUDEASEG N° FSAA-0023-2024. Se comprobó la retención ilícita de primas cobradas a asegurados y no entregadas a las empresas de seguros en los plazos reglamentarios del Art. 88.",
+    "legalBasis": "Ley de la Actividad Aseguradora Art. 88, 142 • Providencia SUDEASEG N° 514",
+    "complianceImpact": "PROHIBICIÓN DE INTERMEDIACIÓN: Ninguna compañía de seguros o sociedad de corretaje puede liquidar comisiones ni aceptar solicitudes suscritas por este intermediario suspendido."
+  },
+  {
+    "id": "SUD-1002",
+    "name": "ASEGURATODO ASESORES DE SEGUROS S.A.",
+    "aliases": ["AseguraTodo Broker"],
+    "type": "Entity",
+    "program": "SUDEASEG - REVOCACIÓN DEFINITIVA DE AUTORIZACIÓN",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-30918273-0",
+    "remarks": "Sociedad de corretaje con licencia revocada definitivamente por intermediación en pólizas de compañías extranjeras no autorizadas para operar en Venezuela.",
+    "caseDetails": "Resolución ministerial publicada en Gaceta Oficial. Clausura administrativa de operaciones y cancelación del asiento registral en el Directorio de Intermediarios de la SUDEASEG.",
+    "legalBasis": "Ley de la Actividad Aseguradora Art. 148 • Gaceta Oficial N° 42.450",
+    "complianceImpact": "INVALIDEZ OPERATIVA: Queda prohibida la aceptación de cualquier carátula o trámite presentado a nombre de esta sociedad."
+  }
+]

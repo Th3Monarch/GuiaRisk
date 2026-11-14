@@ -1,0 +1,30 @@
+[
+  {
+    "id": "PEPX-3001",
+    "name": "HERNANDEZ ALVARADO, Juan Orlando",
+    "aliases": ["JOH", "Juan Orlando Hernandez"],
+    "type": "Individual",
+    "program": "PEP EXTRANJERO - JEFE DE ESTADO DE ALTO RIESGO",
+    "nationality": "Honduras",
+    "dob": "1968-10-28",
+    "idNumber": "HN-ID-0801196802111",
+    "remarks": "Persona Políticamente Expuesta Extranjera (Ex-Presidente de la República de Honduras) clasificada en Nivel Máximo de Riesgo LA/FT.",
+    "caseDetails": "Extraditado y condenado por narcotráfico y conspiración para utilizar instituciones del Estado para el tráfico de armas y drogas. Implica cumplimiento obligatorio de Debida Diligencia Intensificada reforzada (GAFI Rec. 12).",
+    "legalBasis": "Recomendación 12 del GAFI / FATF • Providencia SUDEASEG N° 514 (Régimen de PEP Extranjeros)",
+    "complianceImpact": "APROBACIÓN DE JUNTA DIRECTIVA OBLIGATORIA: Todo negocio, póliza o vínculo requiere autorización expresa de la Junta Directiva de la aseguradora y monitoreo continuo semanal."
+  },
+  {
+    "id": "PEPX-3002",
+    "name": "LEMAIRE, Philippe Pierre",
+    "aliases": ["Philippe Lemaire"],
+    "type": "Individual",
+    "program": "PEP INTERNACIONAL - ALTA DIRECCIÓN ORGANISMO MULTILATERAL",
+    "nationality": "Francia",
+    "dob": "1962-09-04",
+    "idNumber": "FR-PASSP-8829102",
+    "remarks": "Director de Finanzas de Organismo Multilateral Europeo. Clasificado como PEP Internacional por manejo directo de fondos públicos de cooperación.",
+    "caseDetails": "Designación como Persona Políticamente Expuesta por función internacional prominente. No registra sanciones penales pero requiere declaración jurada de origen de fondos obligatoria.",
+    "legalBasis": "Convención de las Naciones Unidas contra la Corrupción (UNCAC) • Providencia SUDEASEG N° 514",
+    "complianceImpact": "DEBIDA DILIGENCIA REFORZADA: Verificación estricta de origen de fondos y justificación económica de las coberturas contratadas."
+  }
+]

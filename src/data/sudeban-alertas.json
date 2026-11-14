@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SDB-9001",
+    "name": "GOMEZ SILVA, Carlos Enrique",
+    "aliases": ["Carlos Gomez Silva"],
+    "type": "Individual",
+    "program": "CIRCULAR SUDEBAN SIB-DSB-UNIFIN",
+    "nationality": "Venezuela",
+    "dob": "1982-05-14",
+    "idNumber": "V-13456789",
+    "remarks": "Sujeto reportado por la SUDEBAN mediante Circular Confidencial a la banca nacional con orden de inmovilización preventiva de cuentas bancarias.",
+    "caseDetails": "La Unidad Nacional de Inteligencia Financiera (UNIF) de la SUDEBAN detectó transacciones estructuradas atípicas de alto volumen (*smurfing*) sin justificación económica comercial, vinculadas a mesas de cambio ilegales.",
+    "legalBasis": "Ley de Instituciones del Sector Bancario Art. 171 • Resolución SUDEBAN N° 083.18",
+    "complianceImpact": "BLOQUEO BANCARIO-ASEGURADOR: Prohibición de recibir transferencias, cheques o pagos de primas de este titular. Las aseguradoras no pueden indemnizar siniestros a cuentas a su nombre."
+  },
+  {
+    "id": "SDB-9002",
+    "name": "INVERSIONES CRIPTOTRADE C.A.",
+    "aliases": ["CriptoTrade Venezuela"],
+    "type": "Entity",
+    "program": "SUDEBAN ALERTA - OPERADOR FINANCIERO ILEGAL",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-41098234-9",
+    "remarks": "Entidad señalada por la SUDEBAN por captación no autorizada de fondos del público y operaciones cambiarias clandestinas.",
+    "caseDetails": "Intervención ordenada por la Superintendencia de Bancos por operar como intermediario financiero paralelo sin licencia bancaria ni supervisión regulatoria.",
+    "legalBasis": "Decreto con Rango, Valor y Fuerza de Ley de Instituciones del Sector Bancario Art. 213",
+    "complianceImpact": "PROHIBICIÓN ESTRICTA: Negativa absoluta de contratación de pólizas de fidelidad, D&O o cuentas recaudadoras."
+  }
+]

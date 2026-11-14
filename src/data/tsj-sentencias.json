@@ -1,0 +1,30 @@
+[
+  {
+    "id": "TSJ-2001",
+    "name": "RINCON FERNANDEZ, Roberto Antonio",
+    "aliases": ["Roberto Rincon"],
+    "type": "Individual",
+    "program": "TSJ - SALA DE CASACIÓN PENAL (Medida Cautelar de Bienes)",
+    "nationality": "Venezuela",
+    "dob": "1960-08-15",
+    "idNumber": "V-8765432",
+    "remarks": "Sujeto objeto de medida judicial preventiva de aseguramiento de bienes dictada por tribunal penal venezolano en juicio por legitimación de capitales.",
+    "caseDetails": "Sentencia N° 342 de la Sala de Casación Penal del TSJ que ratifica medida cautelar de prohibición de enajenar y gravar sobre bienes muebles e inmuebles, e inmovilización de cuentas bancarias por enriquecimiento ilícito y desvío de contratos estatales.",
+    "legalBasis": "Código Orgánico Procesal Penal (COPP) Art. 518 • Ley Orgánica contra la Delincuencia Organizada (LOCDO/FT) Art. 55",
+    "complianceImpact": "BLOQUEO JUDICIAL VINCULANTE: Suspensión de cualquier pago de indemnización o emisión de pólizas patrimoniales sobre bienes sujetos a aseguramiento judicial."
+  },
+  {
+    "id": "TSJ-2002",
+    "name": "IMPORTADORA Y EXPORTADORA GLOBAL TRADE C.A.",
+    "aliases": ["Global Trade Venezuela"],
+    "type": "Entity",
+    "program": "TSJ - MEDIDA CAUTELAR DE EMBARGO PREVENTIVO",
+    "nationality": "Venezuela",
+    "dob": null,
+    "idNumber": "J-31998877-3",
+    "remarks": "Razón social sujeta a intervención judicial y medida de embargo preventivo por defraudación mercantil masiva.",
+    "caseDetails": "Expediente N° TSJ-SCP-2023-881. La Sala Constitucional confirmó la designación de junta administradora especial tras detectarse la emisión de cartas de crédito ficticias para importaciones no realizadas.",
+    "legalBasis": "Código de Comercio Art. 340 • Ley Contra los Ilícitos Cambiarios",
+    "complianceImpact": "ALERTA CORPORATIVA: Toda operación debe ser firmada exclusivamente por el administrador judicial designado por el tribunal y avalada por el Comité de Cumplimiento."
+  }
+]

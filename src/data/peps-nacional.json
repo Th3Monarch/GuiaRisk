@@ -1,0 +1,58 @@
+[
+  {
+    "id": "PEP-VEN-001",
+    "name": "HERNANDEZ SILVA, Carmen Beatriz",
+    "position": "Viceministra de Finanzas y Comercio Exterior",
+    "institution": "Ministerio del Poder Popular de Economía, Finanzas y Comercio Exterior",
+    "category": "Nivel 1 - Alto Riesgo PEP Nacional",
+    "nationality": "Venezuela",
+    "activeSince": "2021-08-15",
+    "idNumber": "V-14228901",
+    "remarks": "Funcionaria de alto rango con ordenación de pagos, manejo directo de presupuesto público nacional y firma en contrataciones soberanas.",
+    "caseDetails": "Designada mediante Gaceta Oficial N° 42.190. Al ostentar un cargo de nivel viceministerial, califica como Persona Expuesta Políticamente (PEP) de primer nivel de acuerdo con los estándares GAFI/FATF y la Resolución 083.18 de la SUDEBAN. Requiere aplicación de debida diligencia intensificada (DDI), declaración de origen de fondos y aprobación por la junta directiva antes de cualquier suscripción de póliza.",
+    "legalBasis": "Gaceta Oficial N° 42.190 • Providencia SUDEASEG N° 514 • Estándares GAFI / FATF Recomendación 12",
+    "complianceImpact": "DEBIDA DILIGENCIA REFORZADA: No implica un bloqueo penal inmediato, pero exige aprobación indelegable de la Alta Gerencia de Cumplimiento y justificación patrimonial de los fondos utilizados para el pago de primas."
+  },
+  {
+    "id": "PEP-VEN-002",
+    "name": "MENDOZA CASTILLO, Rafael Eduardo",
+    "position": "Director General de Adquisiciones y Suministros",
+    "institution": "Petróleos de Venezuela S.A. (PDVSA)",
+    "category": "Nivel 1 - Alto Riesgo PEP",
+    "nationality": "Venezuela",
+    "activeSince": "2020-03-10",
+    "idNumber": "V-11894220",
+    "remarks": "Funcionario corporativo con facultades de decisión sobre adjudicación de contratos y licitaciones del sector hidrocarburos.",
+    "caseDetails": "Responsable de la procura y compras estratégicas de la principal empresa estatal petrolera. Por el volumen de contratación y la exposición a riesgos del sector energético, la normativa antilavado exige monitoreo continuo de transacciones y verificación exhaustiva de beneficiarios finales.",
+    "legalBasis": "Gaceta Oficial Extraordinaria N° 6.520 • Normativa SUDEASEG de Prevención LC/FT",
+    "complianceImpact": "APROBACIÓN DE ALTO NIVEL: Requiere matriz de riesgo reforzada, formulario PEP firmado en original y verificación de no vinculación con empresas intermediarias de suministro."
+  },
+  {
+    "id": "PEP-VEN-003",
+    "name": "RAMIREZ MORALES, Laura Elena",
+    "position": "Alcaldesa Municipal",
+    "institution": "Alcaldía del Municipio Chacao / Edo. Miranda",
+    "category": "Nivel 2 - PEP Regional / Local",
+    "nationality": "Venezuela",
+    "activeSince": "2022-01-05",
+    "idNumber": "V-17540112",
+    "remarks": "Máxima autoridad ejecutiva del municipio con administración tributaria local y potestades de contratación pública municipal.",
+    "caseDetails": "Electa para el período municipal en ejercicio. Como funcionaria pública de elección popular, está sujeta al régimen de Personas Expuestas Políticamente durante su mandato y hasta por dos (2) años posteriores al cese de sus funciones.",
+    "legalBasis": "Ley Orgánica del Poder Público Municipal • Resolución SUDEBAN N° 083-18",
+    "complianceImpact": "MONITOREO DE ACTIVIDAD: Debe confirmarse que las primas o pagos deriven de ingresos legítimos declarados. Requiere registro en el reporte trimestral de PEPs ante el ente regulador."
+  },
+  {
+    "id": "PEP-VEN-004",
+    "name": "SUAREZ BRICEÑO, Gonzalo Andres",
+    "position": "Magistrado de Sala Político Administrativa",
+    "institution": "Tribunal Supremo de Justicia (TSJ)",
+    "category": "Nivel 1 - Alto Riesgo PEP",
+    "nationality": "Venezuela",
+    "activeSince": "2019-11-20",
+    "idNumber": "V-8750341",
+    "remarks": "Magistrado del máximo tribunal con jurisdicción directa sobre demandas, expropiaciones y contratos del Estado venezolano.",
+    "caseDetails": "Poder Judicial de rango nacional con inmunidad de jurisdicción y facultades resolutivas en diferendos económicos y tributarios estatales. Considerado sujeto de máxima categoría de debida diligencia.",
+    "legalBasis": "Constitución de la República Bolivariana de Venezuela • Ley Orgánica del TSJ",
+    "complianceImpact": "CONSULTA PREVIA AL COMITÉ: Cualquier emisión de póliza de alto valor o seguro de vida/patrimonial debe contar con el visado del Comité de Prevención de Control de Legitimación de Capitales."
+  }
+]
