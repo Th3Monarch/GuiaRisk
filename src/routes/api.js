@@ -15,6 +15,7 @@ const {
   dismissMatch
 } = require('../services/certificate-service');
 const { generateBatchExcel, generateHistoryExcel } = require('../services/excel-export-service');
+const { getCaptchaSession, queryLiveTaxpayer } = require('../services/seniat-live-service');
 
 const upload = multer({ limits: { fileSize: 10 * 1024 * 1024 } }); // 10MB para carteras grandes
 
@@ -386,6 +387,29 @@ router.post('/sync/refresh', (req, res) => {
     message: 'Bases de datos de cumplimiento sincronizadas y reindexadas con éxito.',
     updatedAt: new Date().toISOString()
   });
+});
+
+// 9. Enlace en Vivo con SENIAT (Human-in-the-Loop & Sesión de 15 min)
+router.get('/seniat/live/captcha', async (req, res) => {
+  try {
+    const result = await getCaptchaSession(req.query.sessionId);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'SERVER_ERROR', message: err.message });
+  }
+});
+
+router.post('/seniat/live/query', async (req, res) => {
+  try {
+    const { idNumber, captchaCode, sessionId } = req.body;
+    if (!idNumber) {
+      return res.status(400).json({ success: false, error: 'ID_REQUIRED', message: 'Debe ingresar un número de cédula o RIF.' });
+    }
+    const result = await queryLiveTaxpayer(idNumber, captchaCode, sessionId);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'SERVER_ERROR', message: err.message });
+  }
 });
 
 module.exports = router;

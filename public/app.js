@@ -779,6 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       if (certModal.classList.contains('active')) closeCertificateModal();
       if (dismissModal.classList.contains('active')) closeDismissModal();
+      if (modalSeniatLive && modalSeniatLive.classList.contains('active')) closeSeniatModal();
     }
   });
 
@@ -1163,6 +1164,220 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         btnSyncLists.disabled = false;
         btnSyncLists.textContent = 'Sincronizar y Reindexar Listas';
+      }
+    });
+  }
+
+  // ================= SENIAT EN VIVO (HUMAN-IN-THE-LOOP & SESIÓN 15 MIN) =================
+  let seniatLiveSessionId = null;
+  const modalSeniatLive = document.getElementById('modalSeniatLive');
+  const btnOpenSeniatLive = document.getElementById('btnOpenSeniatLive');
+  const btnCloseSeniatModal = document.getElementById('btnCloseSeniatModal');
+  const btnCancelSeniatModal = document.getElementById('btnCancelSeniatModal');
+  const btnReloadSeniatCaptcha = document.getElementById('btnReloadSeniatCaptcha');
+  const btnSubmitSeniatLive = document.getElementById('btnSubmitSeniatLive');
+  const seniatModalDoc = document.getElementById('seniatModalDoc');
+  const seniatSessionBadge = document.getElementById('seniatSessionBadge');
+  const seniatModalCaptchaImg = document.getElementById('seniatModalCaptchaImg');
+  const seniatModalCaptchaCode = document.getElementById('seniatModalCaptchaCode');
+  const seniatModalMsg = document.getElementById('seniatModalMsg');
+  const seniatCaptchaSection = document.getElementById('seniatCaptchaSection');
+
+  function openSeniatModal() {
+    const docInput = (document.getElementById('idNumber')?.value || currentAudit?.client?.idNumber || '').trim();
+    if (!docInput) {
+      alert('Por favor ingrese primero un número de Cédula o RIF en el formulario de consulta.');
+      document.getElementById('idNumber')?.focus();
+      return;
+    }
+
+    if (seniatModalDoc) seniatModalDoc.textContent = docInput;
+    if (seniatModalMsg) seniatModalMsg.style.display = 'none';
+    if (modalSeniatLive) modalSeniatLive.classList.add('active');
+    loadSeniatCaptcha();
+  }
+
+  function closeSeniatModal() {
+    if (modalSeniatLive) modalSeniatLive.classList.remove('active');
+  }
+
+  async function loadSeniatCaptcha(forceRefresh = false) {
+    if (!seniatSessionBadge || !seniatModalCaptchaImg) return;
+    seniatSessionBadge.innerHTML = '⏳ Conectando con SENIAT...';
+    seniatSessionBadge.style.color = '#f59e0b';
+    seniatModalCaptchaImg.style.opacity = '0.4';
+    if (seniatModalMsg) seniatModalMsg.style.display = 'none';
+
+    try {
+      const url = forceRefresh 
+        ? `/api/seniat/live/captcha` 
+        : `/api/seniat/live/captcha?sessionId=${encodeURIComponent(seniatLiveSessionId || '')}`;
+      
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.success) {
+        seniatLiveSessionId = data.sessionId;
+
+        if (data.hasActiveSession) {
+          seniatSessionBadge.innerHTML = `✅ Sesión activa (${data.remainingMinutes} min restantes)`;
+          seniatSessionBadge.style.color = '#10b981';
+          if (seniatCaptchaSection) seniatCaptchaSection.style.display = 'none';
+          showSeniatModalMsg('Su sesión se encuentra activa en el SENIAT. Puede consultar directamente sin resolver otro captcha.', 'success');
+        } else {
+          if (seniatCaptchaSection) seniatCaptchaSection.style.display = 'block';
+          seniatSessionBadge.innerHTML = '⚠️ Captcha requerido para autenticar';
+          seniatSessionBadge.style.color = '#f59e0b';
+          seniatModalCaptchaImg.src = data.captchaImage;
+          seniatModalCaptchaImg.style.opacity = '1';
+          if (seniatModalCaptchaCode) {
+            seniatModalCaptchaCode.value = '';
+            setTimeout(() => seniatModalCaptchaCode.focus(), 150);
+          }
+        }
+      } else {
+        seniatSessionBadge.innerHTML = '❌ Servidor SENIAT no responde';
+        seniatSessionBadge.style.color = '#ef4444';
+        showSeniatModalMsg(data.message || 'No se pudo conectar con el portal del SENIAT', 'error');
+      }
+    } catch (err) {
+      seniatSessionBadge.innerHTML = '❌ Error de red';
+      seniatSessionBadge.style.color = '#ef4444';
+      showSeniatModalMsg('Error de conexión: ' + err.message, 'error');
+    }
+  }
+
+  function showSeniatModalMsg(msg, type = 'info') {
+    if (!seniatModalMsg) return;
+    seniatModalMsg.style.display = 'block';
+    seniatModalMsg.textContent = msg;
+    if (type === 'error') {
+      seniatModalMsg.style.background = 'rgba(239, 68, 68, 0.15)';
+      seniatModalMsg.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+      seniatModalMsg.style.color = '#f87171';
+    } else if (type === 'success') {
+      seniatModalMsg.style.background = 'rgba(16, 185, 129, 0.15)';
+      seniatModalMsg.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+      seniatModalMsg.style.color = '#34d399';
+    } else {
+      seniatModalMsg.style.background = 'rgba(56, 189, 248, 0.15)';
+      seniatModalMsg.style.border = '1px solid rgba(56, 189, 248, 0.4)';
+      seniatModalMsg.style.color = '#38bdf8';
+    }
+  }
+
+  async function submitSeniatLiveQuery() {
+    const docInput = (document.getElementById('idNumber')?.value || currentAudit?.client?.idNumber || '').trim();
+    const captchaCode = (seniatModalCaptchaCode?.value || '').trim();
+
+    if (!docInput) {
+      showSeniatModalMsg('No se detectó un documento para consultar.', 'error');
+      return;
+    }
+
+    if (btnSubmitSeniatLive) {
+      btnSubmitSeniatLive.disabled = true;
+      btnSubmitSeniatLive.innerHTML = '<span>Consultando...</span>';
+    }
+
+    try {
+      const res = await fetch('/api/seniat/live/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          idNumber: docInput,
+          captchaCode: captchaCode,
+          sessionId: seniatLiveSessionId
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success && data.found) {
+        showSeniatModalMsg(`✓ ¡Verificación exitosa! Contribuyente: ${data.data.nombre}`, 'success');
+
+        // Actualizar la tarjeta tributaria en Tab 1
+        const tagEl = document.getElementById('seniatTag');
+        if (tagEl) {
+          tagEl.textContent = 'EN VIVO - OFICIAL';
+          tagEl.className = 'tag-verified';
+          tagEl.style.background = 'rgba(16, 185, 129, 0.2)';
+          tagEl.style.borderColor = '#10b981';
+          tagEl.style.color = '#10b981';
+        }
+
+        const rifNumEl = document.getElementById('seniatRifNumber');
+        if (rifNumEl) rifNumEl.textContent = data.data.rif;
+
+        const nameEl = document.getElementById('seniatRif');
+        if (nameEl) nameEl.textContent = data.data.nombre;
+
+        const catEl = document.getElementById('seniatCategory');
+        if (catEl) catEl.textContent = data.data.condicion;
+
+        const retEl = document.getElementById('seniatRetention');
+        if (retEl) retEl.textContent = data.data.retencionIVA;
+
+        const actEl = document.getElementById('seniatActivity');
+        if (actEl) actEl.textContent = data.data.actividad;
+
+        // Si hay una auditoría activa, enriquecer su objeto
+        if (typeof currentAudit !== 'undefined' && currentAudit) {
+          if (!currentAudit.nationalEnrichment) currentAudit.nationalEnrichment = {};
+          currentAudit.nationalEnrichment.seniat = {
+            verified: true,
+            isSpecificRecord: true,
+            data: {
+              rif: data.data.rif,
+              name: data.data.nombre,
+              taxCategory: data.data.condicion,
+              withholdingRate: data.data.retencionIVA,
+              status: data.data.estadoRegistro
+            }
+          };
+        }
+
+        setTimeout(() => {
+          closeSeniatModal();
+        }, 1800);
+      } else if (data.success && !data.found) {
+        showSeniatModalMsg(data.message || 'El documento no figura registrado en el SENIAT.', 'info');
+      } else if (data.error === 'CAPTCHA_INCORRECT') {
+        showSeniatModalMsg('Código incorrecto. Descargando nuevo captcha...', 'error');
+        await loadSeniatCaptcha(true);
+      } else if (data.error === 'SESSION_EXPIRED') {
+        showSeniatModalMsg('La sesión expiró. Descargando nuevo captcha...', 'error');
+        await loadSeniatCaptcha(true);
+      } else {
+        showSeniatModalMsg(data.message || 'Error en la consulta.', 'error');
+      }
+    } catch (err) {
+      showSeniatModalMsg('Error de red: ' + err.message, 'error');
+    } finally {
+      if (btnSubmitSeniatLive) {
+        btnSubmitSeniatLive.disabled = false;
+        btnSubmitSeniatLive.innerHTML = '<span>✓ Consultar en SENIAT</span>';
+      }
+    }
+  }
+
+  if (btnOpenSeniatLive) btnOpenSeniatLive.addEventListener('click', openSeniatModal);
+  if (btnCloseSeniatModal) btnCloseSeniatModal.addEventListener('click', closeSeniatModal);
+  if (btnCancelSeniatModal) btnCancelSeniatModal.addEventListener('click', closeSeniatModal);
+  if (btnReloadSeniatCaptcha) btnReloadSeniatCaptcha.addEventListener('click', () => loadSeniatCaptcha(true));
+  if (btnSubmitSeniatLive) btnSubmitSeniatLive.addEventListener('click', submitSeniatLiveQuery);
+
+  if (modalSeniatLive) {
+    modalSeniatLive.addEventListener('click', (e) => {
+      if (e.target === modalSeniatLive) closeSeniatModal();
+    });
+  }
+
+  if (seniatModalCaptchaCode) {
+    seniatModalCaptchaCode.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        submitSeniatLiveQuery();
       }
     });
   }
